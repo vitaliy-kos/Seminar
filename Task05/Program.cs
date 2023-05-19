@@ -8,8 +8,13 @@ Console.Write("Введите натуральное число: ");
 int number = Convert.ToInt32(Console.ReadLine());
 int i = -number;
 
-while( i <= number )
+if (number < 1)
+    Console.WriteLine("Некорректный ввод.");
+else
 {
-    Console.Write($"{i} ");
-    i++;
+    while( i <= number )
+    {
+        Console.Write($"{i} ");
+        i++;
+    }
 }
