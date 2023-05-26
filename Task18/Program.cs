@@ -12,7 +12,7 @@ string output = range == null
 
 Console.WriteLine(output);
 
-string Range(int q)
+string Range(string q)
 {
     if (q == "1") return "x > 0, y > 0";
     if (q == "2") return "x < 0, y > 0";
