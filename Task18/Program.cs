@@ -8,7 +8,7 @@ int quarter = Convert.ToInt32(Console.ReadLine());
 string range = Quarter(quarter);
 string output = range == null 
                         ? "Введенное число не соответствует четверти" 
-                        : $"Возможные координаты для заданной четверти ({quarter}) -> {range}" ;
+                        : $"Возможные координаты для заданной четверти ({quarter}): {range}" ;
 
 Console.WriteLine(output);
 
