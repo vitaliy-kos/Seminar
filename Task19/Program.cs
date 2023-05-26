@@ -34,24 +34,12 @@ int ReverseNumber(int temp)
     int finishNum = 0;
     int remains = 0;
 
-    if (temp > 0) {
-        while (temp > 0)
-        {
-            finishNum = finishNum * 10;
-            remains = temp % 10;
-            finishNum = finishNum + remains;
-            temp = temp / 10;
-        }
-    }
-    else if (temp < 0)
+    while (temp != 0)
     {
-        while (temp < 0)
-        {
-            finishNum = finishNum * 10;
-            remains = temp % 10;
-            finishNum = finishNum + remains;
-            temp = temp / 10;
-        }
+        finishNum = finishNum * 10;
+        remains = temp % 10;
+        finishNum = finishNum + remains;
+        temp = temp / 10;
     }
 
     return finishNum;
