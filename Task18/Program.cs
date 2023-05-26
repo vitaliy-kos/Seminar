@@ -5,14 +5,14 @@
 Console.Write("Введите номер четверти: ");
 int quarter = Convert.ToInt32(Console.ReadLine());
 
-string range = Quarter(quarter);
+string range = Range(quarter);
 string output = range == null 
                         ? "Введенное число не соответствует четверти" 
                         : $"Возможные координаты для заданной четверти ({quarter}): {range}" ;
 
 Console.WriteLine(output);
 
-string Quarter(int q)
+string Range(int q)
 {
     if (q == 1) return "x > 0, y > 0";
     if (q == 2) return "x < 0, y > 0";
