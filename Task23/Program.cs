@@ -17,7 +17,7 @@ void WriteLinesCube(int number)
     while (i <= number)
     {
         int cube = i * i * i;
-        Console.WriteLine($"{i,3} -> {cube,4}");
+        Console.WriteLine($"{i,3} | {cube,4}");
         i++;
     }
 }
