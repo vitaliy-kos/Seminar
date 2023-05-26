@@ -15,7 +15,7 @@ void WriteLinesSquare(int number)
     while (i <= number)
     {
         int square = i * i;
-        Console.WriteLine($"{i} -> {square}");
+        Console.WriteLine($"{i,3} -> {square,4}");
         i++;
     }
 }
