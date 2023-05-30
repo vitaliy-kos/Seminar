@@ -1,23 +1,29 @@
-﻿// Задача 26: Напишите программу, которая принимает
-// на вход число и выдаёт количество цифр в числе.
-// 456 -> 3
-// 78 -> 2
-// 89126 -> 5
+﻿// Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+// 3, 5 -> 243 (3⁵)
+// 2, 4 -> 16
 
 Console.Write("Введите любое число: ");
 int number = Convert.ToInt32(Console.ReadLine());
 
-int res = CountNum(number);
-Console.WriteLine($"Количество символов: {res}");
+Console.Write("Введите любое натуральное число: ");
+int stepen = Convert.ToInt32(Console.ReadLine());
 
-int CountNum(int num) 
+if (stepen <= 0) 
 {
-    int count = 0;
-    while (num != 0)
+    Console.WriteLine("Введено не натуральное число!");
+    return;
+}
+int res = CountStepen(number, stepen);
+Console.WriteLine($"Число {number} в степени {stepen} = {res}");
+
+int CountStepen(int num, int step)
+{
+    int result = 1;
+
+    for (int i = 1; i <= step; i++)
     {
-        num = num / 10;
-        count ++;
+        result *= num;
     }
 
-    return count;
+    return result;
 }
