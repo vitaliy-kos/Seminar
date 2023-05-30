@@ -4,7 +4,7 @@
 // 78 -> 2
 // 89126 -> 5
 
-Console.Write("Введите любое число:");
+Console.Write("Введите любое число: ");
 int number = Convert.ToInt32(Console.ReadLine());
 
 int res = CountNum(number);
