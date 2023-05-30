@@ -8,14 +8,19 @@
 Console.Write("Введите целое положительное число:");
 int number = Convert.ToInt32(Console.ReadLine());
 
+if (number <= 0)
+{
+    Console.WriteLine("Введено некорректное число!");
+    return;
+}
 int res = SumNumbers(number);
-Console.WriteLine($"Результат:{res}");
+Console.WriteLine($"Сумму чисел от 1 до {number}: {res}");
 
 int SumNumbers(int num)
 {
-    int sum = 0;
+    int sum = 1;
 
-    for (int i = 1; i <= num; i++)
+    for (int i = 2; i <= num; i++)
     {
         sum += i;
     }
