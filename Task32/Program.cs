@@ -33,7 +33,7 @@ void ChangeSign(int[] arr)
 }
 
 int[] array = CreateArrayRndInt(4, -9, 9);
-
 PrintArray(array);
+
 ChangeSign(array);
 PrintArray(array);
