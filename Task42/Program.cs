@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿// Задача 42: Напишите программу, которая будет преобразовывать
+// десятичное число в двоичное.
+// 46 -> 101110
+// 13 -> 1101
+// 2 -> 10
