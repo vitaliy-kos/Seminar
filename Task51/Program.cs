@@ -36,17 +36,17 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-void ReplaceSquadEvenPos(int[,] matrix)
+int GetDiagSum(int[,] matrix)
 {
-    for (int i = 0; i < matrix.GetLength(0); i += 2)
+    int sum = 0;
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j += 2)
-        {
-            matrix[i, j] *= matrix[i, j];
-        }
+        sum += matrix[i, i];
     }
+    return sum;
 }
 
-int[,] array2d = CreateMatrixRndInt(3, 4, -10, 10);
-ReplaceSquadEvenPos(array2d);
+int[,] array2d = CreateMatrixRndInt(3, 4, -100, 100);
 PrintMatrix(array2d);
+
+Console.WriteLine($"Сумма главной диагонали = {GetDiagSum(array2d)}");
