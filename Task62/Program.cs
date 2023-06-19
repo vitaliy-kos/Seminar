@@ -5,18 +5,9 @@
 // 11 16 15 06
 // 10 09 08 07
 
-int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
+int[,] CreateMatrix(int rows, int columns)
 {
     int[,] matrix = new int[rows, columns];
-    Random rnd = new Random();
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            matrix[i,j] = rnd.Next(min, max + 1);
-        }
-        
-    }
     return matrix;
 }
 
@@ -27,38 +18,43 @@ void PrintMatrix(int[,] matrix)
         Console.Write("|");
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            Console.Write($"{matrix[i,j], 6} ");
+            Console.Write($"{matrix[i, j],2} ");
         }
         Console.WriteLine("|");
     }
 }
 
-void PrintMiddleByColumn(double[] arr)
+void FillMatrixBySpiral(int[,] matrix)
 {
-    for (int i = 0; i < arr.Length; i++)
+    int row = 0;
+    int column = 0;
+    int dx = 1;
+    int dy = 0;
+    int direction = 0;
+    int rows = matrix.GetLength(1);
+
+    for (int i = 0; i < matrix.Length; i++)
     {
-        Console.WriteLine($"Среднее арифметическое элементов в {i+1} столбце = {arr[i]}");
+        matrix[row, column] = i + 1;
+
+        if (--rows == 0)
+        {
+            rows = matrix.GetLength(1) * (direction % 2) + matrix.GetLength(0) * ((direction + 1) % 2) - (direction / 2 - 1) - 2;
+            int temp = dx;
+            dx = -dy;
+            dy = temp;
+            direction++;
+        }
+
+        row += dy;
+        column += dx;
     }
 }
 
-double[] CountMiddleInColumn(int[,] arr)
-{
-    double[] middle = new double[arr.GetLength(0)];
-    double sum = 0;
-
-    for (int i = 0; i < arr.GetLength(1); i++)
-    {
-        for (int j = 0; j < arr.GetLength(0); j++) sum += arr[j,i];
-
-        middle[i] = sum / arr.GetLength(0);
-        sum = 0;
-    }
-
-    return middle;
-}
-
-int[,] array2d = CreateMatrixRndInt(4, 4, -100, 100);
+int[,] array2d = CreateMatrix(4, 4);
 PrintMatrix(array2d);
 
-double[] middleByColumn = CountMiddleInColumn(array2d);
-PrintMiddleByColumn(middleByColumn);
+FillMatrixBySpiral(array2d);
+Console.WriteLine("Matrix filled by spiral: ");
+PrintMatrix(array2d);
+
