@@ -37,32 +37,51 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-void PrintMiddleByColumn(double[] arr)
+void PrintSumByRow(int[] arr)
 {
     for (int i = 0; i < arr.Length; i++)
     {
-        Console.WriteLine($"Среднее арифметическое элементов в {i+1} столбце = {arr[i]}");
+        Console.WriteLine($"Sum of elements in {i} row = {arr[i]}");
     }
 }
 
-double[] CountMiddleInColumn(int[,] arr)
+int[] CountSumByRow(int[,] arr)
 {
-    double[] middle = new double[arr.GetLength(0)];
-    double sum = 0;
+    int[] sum = new int[arr.GetLength(1)];
+    
 
-    for (int i = 0; i < arr.GetLength(1); i++)
+    for (int i = 0; i < arr.GetLength(0); i++)
     {
-        for (int j = 0; j < arr.GetLength(0); j++) sum += arr[j,i];
+        int temp = 0;
 
-        middle[i] = sum / arr.GetLength(0);
-        sum = 0;
+        for (int j = 0; j < arr.GetLength(1); j++) 
+        {
+            temp += arr[i, j];
+        }
+
+        sum[i] = temp;
     }
 
-    return middle;
+    return sum;
+}
+
+int GetIndexMinRow(int[] arr)
+{
+    int indexMin = 0;
+
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if(arr[i] < arr[indexMin]) indexMin = i;
+    }
+
+    return indexMin;
 }
 
 int[,] array2d = CreateMatrixRndInt(4, 4, 1, 10);
 PrintMatrix(array2d);
 
-double[] middleByColumn = CountMiddleInColumn(array2d);
-PrintMiddleByColumn(middleByColumn);
+int[] SumByRow = CountSumByRow(array2d);
+PrintSumByRow(SumByRow);
+
+int indexMinRow = GetIndexMinRow(SumByRow);
+Console.WriteLine($"Minimal sum of elements in {indexMinRow} row");
