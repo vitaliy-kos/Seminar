@@ -42,5 +42,15 @@ void Print3DMatrix(int[,,] matrix)
     }
 }
 
-int[,,] array3d = Create3DMatrixRndInt(2, 2, 2);
-Print3DMatrix(array3d);
+int rowsParam = 2;
+int columnsParam = 2;
+int depthParam = 2;
+
+if (rowsParam*columnsParam*depthParam <= 90) {
+    int[,,] array3d = Create3DMatrixRndInt(rowsParam, columnsParam, depthParam);
+    Print3DMatrix(array3d);
+}
+else
+{
+    Console.WriteLine("Недостаточно двузначных неповторяющихся чисел для заполнения матрицы установленной размерности!");
+}
