@@ -20,10 +20,10 @@ int AckermanCount(int n, int m)
     }
 }
 
-Console.Write("Insert natural number n: ");
-int nNum = Convert.ToInt32(Console.ReadLine());
 Console.Write("Insert natural number m: ");
 int mNum = Convert.ToInt32(Console.ReadLine());
+Console.Write("Insert natural number n: ");
+int nNum = Convert.ToInt32(Console.ReadLine());
 
-int result = AckermanCount(nNum, mNum);
-Console.WriteLine($"The result is: {result}");
+int result = AckermanCount(mNum, nNum);
+Console.WriteLine($"A({mNum},{nNum}) = {result}");
