@@ -3,16 +3,16 @@
 // A = 3; B = 5 -> 243 (3⁵)
 // A = 2; B = 3 -> 8
 
-int NumInStepRec(int n)
+int NumInStepRec(int n, int step)
 {
-    if (n == 0) return 0;
-    else return n % 10 + NumInStepRec(n / 10);
+    if (step == 0) return 1;
+    return n * NumInStepRec(n, step-1);
 }
 
-Console.WriteLine("Введите натуральное число: ");
+Console.WriteLine("Insert number: ");
 int num = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine("Введите степень числа: ");
+Console.WriteLine("Insert number's exp: ");
 int stepen = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine(NumInStepRec(num, stepen));
+Console.WriteLine($"Result is {NumInStepRec(num, stepen)}");
