@@ -20,4 +20,11 @@ void ConsecutiveNumbersInRange(int num1)
 Console.WriteLine("Insert natural number: ");
 int number = Convert.ToInt32(Console.ReadLine());
 
-ConsecutiveNumbersInRange(number);
+if (number > 0)
+{
+    ConsecutiveNumbersInRange(number);
+}
+else
+{
+    Console.WriteLine("Inserted number isn't natural!");
+}
